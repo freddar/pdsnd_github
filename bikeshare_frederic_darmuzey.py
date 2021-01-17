@@ -232,23 +232,23 @@ def time_stats(df):
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
-    print('\nCalculating The Most Popular Stations and Trip...\n')
+    print("\nCalculating The Most Popular Stations and Trip...\n")
     start_time = time.time()
     
     try:
         
         # display most commonly used start station
     
-        print('\nThe most commonly used start station is ', df.mode()['Start Station'][0])
+        print("\nThe most commonly used start station is ", df.mode()['Start Station'][0])
 
         # display most commonly used end station
         
-        print('\nThe most commonly used end station is ', df.mode()['End Station'][0])
+        print("\nThe most commonly used end station is ", df.mode()['End Station'][0])
         
         # display most frequent combination of start station and end station trip
 
         print(
-            '\nThe most common combinations of stations are ', df.groupby(['Start Station', 'End Station']).size().idxmax())
+            "\nThe most common combinations of stations are ", df.groupby(['Start Station', 'End Station']).size().idxmax())
 
     except Exception as e:
         pass
@@ -260,18 +260,18 @@ def station_stats(df):
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
-    print('\nCalculating Trip Duration...\n')
+    print("\nCalculating Trip Duration...\n")
     start_time = time.time()
     
     try:
         
         # display total travel time
         
-        print('\nThe total travel time is ', sum(df['Trip Duration']))
+        print("\nThe total travel time is ", sum(df['Trip Duration']))
 
         # display mean travel time
         
-        print('\nThe mean travel time is ', df.loc[:, "Trip Duration"].mean())
+        print("\nThe mean travel time is ", df.loc[:, 'Trip Duration'].mean())
     
     except (Exception, ValueError) as e:
         print(e.args)
@@ -283,7 +283,7 @@ def trip_duration_stats(df):
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
-    print('\nCalculating User Stats...\n')
+    print("\nCalculating User Stats...\n")
     start_time = time.time()
     
     try:
@@ -293,7 +293,7 @@ def user_stats(df):
         if 'User Type' not in df: # warn user there is no information about user type if applicable
             raise Exception("No User Type data")
         
-        print('\nType of users:', df['User Type'].value_counts())
+        print("\nType of users: ", df['User Type'].value_counts())
         
     except Exception as e:
         print(e)   
@@ -305,7 +305,7 @@ def user_stats(df):
         if 'Gender' not in df: # warn user there is no information about gender if applicable
             raise Exception("\nNo Gender data")
         
-        print('\nUsers split by gender:', df['Gender'].value_counts())
+        print("\nUsers split by gender: ", df['Gender'].value_counts())
     
     except Exception as e:
         print(e)   
@@ -314,9 +314,9 @@ def user_stats(df):
         
         # Display earliest, most recent, and most common year of birth
         
-        print('\nThe earlier Birth Year is ', int(df['Birth Year'].min()))
-        print('\nThe most recent Birth Year is ', int(df['Birth Year'].max()))
-        print('\nThe most common Birth Year is ', int(df.mode()['Birth Year'][0]))
+        print("\nThe earliest Birth Year is ", int(df['Birth Year'].min()))
+        print("\nThe most recent Birth Year is ", int(df['Birth Year'].max()))
+        print("\nThe most common Birth Year is ", int(df.mode()['Birth Year'][0]))
     
     except Exception:
         print("\nUnable to calculate birth data. Birth column seems to be missing.")
@@ -333,17 +333,17 @@ def display_first_rows(df):
             (str) df - pandas DataFrame with the filtered data from the load_data function.
     """
     
-    print('\nDisplaying 10 first data rows...\n')
+    print("\nDisplaying 10 first data rows...\n")
     start_time = time.time()
     
     display=True
     user_answer=['yes','no']
     
     while display:
-        display = input('\nWould you like to print the 10 first rows of the dataframe? Enter yes or no.\n')
+        display = input("\nWould you like to print the 10 first rows of the dataframe? Enter yes or no.\n")
         while display.lower() not in user_answer:
             display = input(
-                '\nPlease enter a valid answer. Would you like to print 10 rows? Enter yes or no.\n')
+                "\nPlease enter a valid answer. Would you like to print 10 rows? Enter yes or no.\n")
         if display.lower() != 'yes':
             break
         else:
@@ -368,7 +368,7 @@ def main():
         display_first_rows(df)
         
         restart_input=['yes','no']
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input("\nWould you like to restart? Enter yes or no.\n")
         while restart.lower() not in restart_input:
             restart = input("\nPlease enter a correct input: 'yes' for restart, 'no' to end the program.\n")
         if restart.lower() != 'yes':
