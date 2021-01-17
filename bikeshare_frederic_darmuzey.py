@@ -48,7 +48,7 @@ def get_filters():
     
     while time_data.lower() not in time_input:   # loop that we activate if user input is not in time_input list.
         print('\nYou did not select a valid option.')
-        time_data=input('\nPlease enter month, day or both depending on the bikeshare time data you want to access for ' + city+':\n')
+        time_data=input('\nPlease enter month, day or both depending on the bikeshare time data you want to access for ' + city + ':\n')
         
     if time_data.lower() in time_input: # conditional statement: if user input is in time_input, print one of the messages below
         if time_data.lower() == 'both':
@@ -91,14 +91,14 @@ def get_filters():
                 "\nYou chose to see bikeshare data for " + month + " in " + city + " out of all available months. Let's roll it out!!\n")
         
         else:
-            print('\nExcellent! You chose to see bikeshare data of ' + city + ' by ' + time_data + ". Let's go for it!\n")
+            print("\nExcellent! You chose to see bikeshare data of " + city +  " by "  + time_data + ". Let's go for it!\n")
         
             # get user input for day of week (all, monday, tuesday, ... sunday)
 
             day = input(
                  "\nPlease enter the name of the day of the week (Sunday-Saturday) you want to analyze or enter 'all' to analyze the data from Sunday to Saturday:\n")
             while day.lower() not in dataset_days_week:
-                print('\nThis is not a recognized day of the week.')
+                print("\nThis is not a recognized day of the week.")
                 day = input(
                     "\nEnter the correct day to analyze (between Sunday until Saturday) or enter 'all' to analyze everything:\n")
         
