@@ -1,5 +1,5 @@
 ### Date created
-Sunday, January the 17th, 2021 .
+Sunday, January the 17th, 2021.
 
 ### Project Title
 US bikeshare analysis with Python
