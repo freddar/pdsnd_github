@@ -48,7 +48,7 @@ def get_filters():
     
     while time_data.lower() not in time_input:   # loop that we activate if user input is not in time_input list.
         print('\nYou did not select a valid option.')
-        time_data=input('\nPlease enter month, day or both depending on the bikeshare time data you want to access for ' + city+':\n')
+        time_data=input('\nPlease enter month, day or both depending on the bikeshare time data you want to access for ' + city + ':\n')
         
     if time_data.lower() in time_input: # conditional statement: if user input is in time_input, print one of the messages below
         if time_data.lower() == 'both':
@@ -91,14 +91,14 @@ def get_filters():
                 "\nYou chose to see bikeshare data for " + month + " in " + city + " out of all available months. Let's roll it out!!\n")
         
         else:
-            print('\nExcellent! You chose to see bikeshare data of ' + city + ' by ' + time_data + ". Let's go for it!\n")
+            print("\nExcellent! You chose to see bikeshare data of " + city +  " by "  + time_data + ". Let's go for it!\n")
         
             # get user input for day of week (all, monday, tuesday, ... sunday)
 
             day = input(
                  "\nPlease enter the name of the day of the week (Sunday-Saturday) you want to analyze or enter 'all' to analyze the data from Sunday to Saturday:\n")
             while day.lower() not in dataset_days_week:
-                print('\nThis is not a recognized day of the week.')
+                print("\nThis is not a recognized day of the week.")
                 day = input(
                     "\nEnter the correct day to analyze (between Sunday until Saturday) or enter 'all' to analyze everything:\n")
         
@@ -181,7 +181,7 @@ def load_data(city, month, day):
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
-    print('\nCalculating The Most Frequent Times of Travel...\n')
+    print("\nCalculating The Most Frequent Times of Travel...\n")
     start_time = time.time()
     
     try: 
@@ -191,7 +191,7 @@ def time_stats(df):
         if 'month' not in df:  # warn the user they chose not to see any monthly data if applicable
             raise Exception("You chose not to select any data related to months.")
         
-        print('\nThe most frequent month is ', df['month'].value_counts().idxmax())
+        print("\nThe most frequent month is ", df['month'].value_counts().idxmax())
 
     except Exception as e:
         print(e)
@@ -203,7 +203,7 @@ def time_stats(df):
         if 'day_of_week' not in df:  # warn the user they chose not to see any daily data if applicable
              raise Exception("\nYou chose not to select any data related to days.")
          
-        print('\nThe most frequent day is ', df['day_of_week'].value_counts().idxmax())
+        print("\nThe most frequent day is ", df['day_of_week'].value_counts().idxmax())
          
     except Exception as e:
         print(e)
@@ -220,7 +220,7 @@ def time_stats(df):
         
         # display the most common start hour
         
-        print('\nThe most frequent start hour is ', popular_hour)
+        print("\nThe most frequent start hour is ", popular_hour)
         
     except ValueError as e:
         print(e.args)
@@ -232,23 +232,23 @@ def time_stats(df):
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
-    print('\nCalculating The Most Popular Stations and Trip...\n')
+    print("\nCalculating The Most Popular Stations and Trip...\n")
     start_time = time.time()
     
     try:
         
         # display most commonly used start station
     
-        print('\nThe most commonly used start station is ', df.mode()['Start Station'][0])
+        print("\nThe most commonly used start station is ", df.mode()['Start Station'][0])
 
         # display most commonly used end station
         
-        print('\nThe most commonly used end station is ', df.mode()['End Station'][0])
+        print("\nThe most commonly used end station is ", df.mode()['End Station'][0])
         
         # display most frequent combination of start station and end station trip
 
         print(
-            '\nThe most common combinations of stations are ', df.groupby(['Start Station', 'End Station']).size().idxmax())
+            "\nThe most common combinations of stations are ", df.groupby(['Start Station', 'End Station']).size().idxmax())
 
     except Exception as e:
         pass
@@ -260,18 +260,18 @@ def station_stats(df):
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
-    print('\nCalculating Trip Duration...\n')
+    print("\nCalculating Trip Duration...\n")
     start_time = time.time()
     
     try:
         
         # display total travel time
         
-        print('\nThe total travel time is ', sum(df['Trip Duration']))
+        print("\nThe total travel time is ", sum(df['Trip Duration']))
 
         # display mean travel time
         
-        print('\nThe mean travel time is ', df.loc[:, "Trip Duration"].mean())
+        print("\nThe mean travel time is ", df.loc[:, 'Trip Duration'].mean())
     
     except (Exception, ValueError) as e:
         print(e.args)
@@ -283,7 +283,7 @@ def trip_duration_stats(df):
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
-    print('\nCalculating User Stats...\n')
+    print("\nCalculating User Stats...\n")
     start_time = time.time()
     
     try:
@@ -293,7 +293,7 @@ def user_stats(df):
         if 'User Type' not in df: # warn user there is no information about user type if applicable
             raise Exception("No User Type data")
         
-        print('\nType of users:', df['User Type'].value_counts())
+        print("\nType of users: ", df['User Type'].value_counts())
         
     except Exception as e:
         print(e)   
@@ -305,7 +305,7 @@ def user_stats(df):
         if 'Gender' not in df: # warn user there is no information about gender if applicable
             raise Exception("\nNo Gender data")
         
-        print('\nUsers split by gender:', df['Gender'].value_counts())
+        print("\nUsers split by gender: ", df['Gender'].value_counts())
     
     except Exception as e:
         print(e)   
@@ -314,9 +314,9 @@ def user_stats(df):
         
         # Display earliest, most recent, and most common year of birth
         
-        print('\nThe earlier Birth Year is ', int(df['Birth Year'].min()))
-        print('\nThe most recent Birth Year is ', int(df['Birth Year'].max()))
-        print('\nThe most common Birth Year is ', int(df.mode()['Birth Year'][0]))
+        print("\nThe earliest Birth Year is ", int(df['Birth Year'].min()))
+        print("\nThe most recent Birth Year is ", int(df['Birth Year'].max()))
+        print("\nThe most common Birth Year is ", int(df.mode()['Birth Year'][0]))
     
     except Exception:
         print("\nUnable to calculate birth data. Birth column seems to be missing.")
@@ -333,17 +333,17 @@ def display_first_rows(df):
             (str) df - pandas DataFrame with the filtered data from the load_data function.
     """
     
-    print('\nDisplaying 10 first data rows...\n')
+    print("\nDisplaying 10 first data rows...\n")
     start_time = time.time()
     
     display=True
     user_answer=['yes','no']
     
     while display:
-        display = input('\nWould you like to print the 10 first rows of the dataframe? Enter yes or no.\n')
+        display = input("\nWould you like to print the 10 first rows of the dataframe? Enter yes or no.\n")
         while display.lower() not in user_answer:
             display = input(
-                '\nPlease enter a valid answer. Would you like to print 10 rows? Enter yes or no.\n')
+                "\nPlease enter a valid answer. Would you like to print 10 rows? Enter yes or no.\n")
         if display.lower() != 'yes':
             break
         else:
@@ -368,7 +368,7 @@ def main():
         display_first_rows(df)
         
         restart_input=['yes','no']
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input("\nWould you like to restart? Enter yes or no.\n")
         while restart.lower() not in restart_input:
             restart = input("\nPlease enter a correct input: 'yes' for restart, 'no' to end the program.\n")
         if restart.lower() != 'yes':
