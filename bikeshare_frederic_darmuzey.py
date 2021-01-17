@@ -181,7 +181,7 @@ def load_data(city, month, day):
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
-    print('\nCalculating The Most Frequent Times of Travel...\n')
+    print("\nCalculating The Most Frequent Times of Travel...\n")
     start_time = time.time()
     
     try: 
@@ -191,7 +191,7 @@ def time_stats(df):
         if 'month' not in df:  # warn the user they chose not to see any monthly data if applicable
             raise Exception("You chose not to select any data related to months.")
         
-        print('\nThe most frequent month is ', df['month'].value_counts().idxmax())
+        print("\nThe most frequent month is ", df['month'].value_counts().idxmax())
 
     except Exception as e:
         print(e)
@@ -203,7 +203,7 @@ def time_stats(df):
         if 'day_of_week' not in df:  # warn the user they chose not to see any daily data if applicable
              raise Exception("\nYou chose not to select any data related to days.")
          
-        print('\nThe most frequent day is ', df['day_of_week'].value_counts().idxmax())
+        print("\nThe most frequent day is ", df['day_of_week'].value_counts().idxmax())
          
     except Exception as e:
         print(e)
@@ -220,7 +220,7 @@ def time_stats(df):
         
         # display the most common start hour
         
-        print('\nThe most frequent start hour is ', popular_hour)
+        print("\nThe most frequent start hour is ", popular_hour)
         
     except ValueError as e:
         print(e.args)
