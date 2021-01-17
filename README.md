@@ -12,5 +12,18 @@ data files: washington.csv, new_york_city.csv, chicago.csv
 script: bikeshare_frederic_darmuzey.py
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+For this project, we used:
+
+The General Python documentation
+
+The Pandas documentation
+
+Stack Overflow
+
+Geeks for Geeks
+
+Programiz
+
+W3school
+
 
